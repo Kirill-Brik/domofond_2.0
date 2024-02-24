@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer"></footer>
+  <ElFooter class="footer"></ElFooter>
 </template>
 
 <script setup lang="ts"></script>

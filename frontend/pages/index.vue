@@ -1,5 +1,5 @@
 <template>
-  <main></main>
+  <ElMain></ElMain>
 </template>
 
 <script setup lang="ts"></script>

@@ -1,21 +1,21 @@
 <template>
-  <div class="page">
-    <Header />
+  <el-container class="dark page" direction="vertical">
+    <Header class="page__content"/>
     <NuxtPage class="page__content" />
-    <Footer />
-  </div>
+    <Footer class="page__content" />
+  </el-container>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .page {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
 
-  &:deep(.page__content) {
-    flex: 1 1 auto;
+  &__content {
+    margin: auto;
+    width: 100%;
+    max-width: 1100px;
   }
 }
 </style>
