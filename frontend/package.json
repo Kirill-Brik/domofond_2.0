@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
-    "@nuxtjs/color-mode": "^3.3.2"
+    "@iconify-json/ic": "^1.1.17",
+    "@nuxtjs/color-mode": "^3.3.2",
+    "unplugin-icons": "^0.18.5"
   }
 }
