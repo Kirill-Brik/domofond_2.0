@@ -20,6 +20,7 @@
     "@element-plus/nuxt": "^1.0.7",
     "@iconify-json/ic": "^1.1.17",
     "@nuxtjs/color-mode": "^3.3.2",
+    "typescript": "^5.3.3",
     "unplugin-icons": "^0.18.5"
   }
 }

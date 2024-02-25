@@ -1,14 +1,23 @@
 <template>
   <ElHeader class="header">
     <ElRow justify="space-between" align="middle" :gutter="12">
-      <ElCol :span="6">
+      <ElCol :span="8">
         <ElImage class="header__logo" src="/images/logo.svg" fit="contain" />
       </ElCol>
-      <ElCol :span="1"> </ElCol>
-      <ElCol :span="6">
-        <ElIcon size="40px" color="var(--el-color-primary)">
-          <IcBaselinePhoneInTalk />
-        </ElIcon>
+      <ElCol :span="8"> </ElCol>
+      <ElCol :span="8" class="header__phone-wrapper">
+        <UiIconedText
+          class="header__phone"
+          label="Аварийно-диспечерская служба"
+          reverse
+        >
+          <template #icon>
+            <IcBaselinePhoneInTalk />
+          </template>
+          <ElLink :underline="false" href="tel:+7 (4872) 790-451">
+            +7 (4872) 790-451
+          </ElLink>
+        </UiIconedText>
       </ElCol>
     </ElRow>
   </ElHeader>
@@ -24,7 +33,15 @@ import IcBaselinePhoneInTalk from "~icons/ic/baseline-phone-in-talk";
   height: max-content;
 
   &__logo {
-    height: 80px;
+    max-width: 180px;
+    width: 100%;
+  }
+  &__phone-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__phone {
+    max-width: 230px;
   }
 }
 </style>
