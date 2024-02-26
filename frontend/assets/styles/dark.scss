@@ -1,5 +1,9 @@
-@forward 'element-plus/theme-chalk/src/dark/var.scss' with (
+@forward "element-plus/theme-chalk/src/dark/var.scss" with (
   $bg-color: (
     "page": #252525,
+  ),
+
+  $text-color: (
+    "regular": #dbdbdb,
   )
 );

@@ -7,8 +7,11 @@
     >
       <slot name="icon"></slot>
     </ElIcon>
-    <ElCol class="iconed-text__content" :class="{'iconed-text__content_reverse': reverse}">
-      <ElText v-if="label" class="iconed-text__label" size="small">
+    <ElCol
+      class="iconed-text__content"
+      :class="{ 'iconed-text__content_reverse': reverse }"
+    >
+      <ElText v-if="label" class="iconed-text__label" type="info" size="small">
         {{ label }}
       </ElText>
       <ElText class="iconed-text__text">
@@ -45,16 +48,15 @@ defineProps<{
 
   &__label {
     align-self: flex-start;
-    color: var(--el-text-color-secondary)
   }
 
   &__text {
-    align-self: flex-start;
+    --el-font-size-base: 18px;
+    --el-font-weight-primary: 700;
 
-    &:deep(.el-link) {
-      --el-link-font-size: 18px;
-      --el-link-font-weight: 700;
-    }
+    align-self: flex-start;
+    font-size: var(--el-font-size-base);
+    font-weight: var(--el-font-weight-primary);
   }
 }
 </style>

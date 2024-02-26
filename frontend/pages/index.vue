@@ -1,5 +1,9 @@
 <template>
-  <ElMain></ElMain>
+  <ElMain>
+    <HomeAdvantages>
+
+    </HomeAdvantages>
+  </ElMain>
 </template>
 
 <script setup lang="ts">

@@ -8,7 +8,9 @@
   </ElContainer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import 'element-plus/es/components/link/style/css'
+</script>
 
 <style lang="scss">
 .page {

@@ -4,7 +4,9 @@
       <ElCol :span="8">
         <ElImage class="header__logo" src="/images/logo.svg" fit="contain" />
       </ElCol>
-      <ElCol :span="8"> </ElCol>
+      <ElCol :span="8">
+        <NuxtLink class="el-link el-link--default" to="/">test</NuxtLink>
+      </ElCol>
       <ElCol :span="8" class="header__phone-wrapper">
         <UiIconedText
           class="header__phone"
@@ -14,9 +16,12 @@
           <template #icon>
             <IcBaselinePhoneInTalk />
           </template>
-          <ElLink :underline="false" href="tel:+7 (4872) 790-451">
+          <NuxtLink
+            class="el-link el-link--default"
+            href="tel:+7 (4872) 790-451"
+          >
             +7 (4872) 790-451
-          </ElLink>
+          </NuxtLink>
         </UiIconedText>
       </ElCol>
     </ElRow>
