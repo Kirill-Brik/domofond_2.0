@@ -38,7 +38,7 @@ import MaterialSymbolsMonitoring from "~icons/material-symbols/monitoring";
 import IcBaselinePublishedWithChanges from "~icons/ic/baseline-published-with-changes";
 import IcBaselineTask from "~icons/ic/baseline-task";
 
-const advantagesList = ref([
+const advantagesList = shallowRef([
   {
     icon: IcOutlineConstruction,
     text: "Наличие оборудования и своей спецтехники",
