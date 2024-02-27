@@ -3,7 +3,7 @@
     <ElContainer class="page__header-wrapper">
       <Header class="page__content" />
     </ElContainer>
-    <NuxtPage class="page__content" />
+    <NuxtPage class="page__content page__main" />
     <Footer class="page__content" />
   </ElContainer>
 </template>
@@ -22,9 +22,13 @@ import 'element-plus/es/components/link/style/css'
   }
 
   &__content {
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1440px;
+  }
+
+  &__main {
+    padding: 100px var(--el-main-padding);
   }
 }
 </style>

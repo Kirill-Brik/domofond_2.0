@@ -9,6 +9,9 @@
           Основной задачей компании является благополучие вверенного объекта
           недвижимости.
         </ElText>
+        <ElText class="advantages__subtitle" tag="h2">
+          Наши преимущества
+        </ElText>
         <ul class="advantages__list">
           <li v-for="advantage in advantagesList" class="advantages__item">
             <ElIcon
@@ -23,11 +26,25 @@
         </ul>
       </ElCol>
       <ElCol class="advantages__image-wrapper" :span="14">
-        <ElImage
-          class="advantages__image"
-          src="/images/home.svg"
-          fit="contain"
-        />
+        <UiAspectRatio :ratio="1 / 2" v-slot="props">
+          <ElImage
+            v-bind="props"
+            class="advantages__image"
+            src="/images/home.svg"
+            loading="lazy"
+          >
+            <template #placeholder>
+              <ElSkeleton>
+                <template #template>
+                  <el-skeleton-item
+                    variant="image"
+                    style="width: 100%; height: 240px"
+                  />
+                </template>
+              </ElSkeleton>
+            </template>
+          </ElImage>
+        </UiAspectRatio>
       </ElCol>
     </ElRow>
   </ElContainer>
@@ -63,12 +80,19 @@ const advantagesList = shallowRef([
   &__title {
     font-weight: 700;
     font-size: 36px;
+    margin-bottom: 14px;
   }
 
   &__description {
     font-weight: 400;
     font-size: 18px;
     line-height: 120%;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    font-size: 24px;
   }
 }
 </style>
