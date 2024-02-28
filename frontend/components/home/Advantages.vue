@@ -1,52 +1,50 @@
 <template>
   <ElContainer class="advantages">
-    <ElRow>
-      <ElCol class="advantages__content" :span="10">
-        <ElText class="advantages__title" tag="h1">
-          Мы работаем для вашего уюта.
-        </ElText>
-        <ElText class="advantages__description" type="info" tag="p">
-          Основной задачей компании является благополучие вверенного объекта
-          недвижимости.
-        </ElText>
-        <ElText class="advantages__subtitle" tag="h2">
-          Наши преимущества
-        </ElText>
-        <ul class="advantages__list">
-          <li v-for="advantage in advantagesList" class="advantages__item">
-            <ElIcon
-              class="advantages__link"
-              size="40px"
-              color="var(--el-color-primary)"
-            >
-              <component :is="advantage.icon" />
-            </ElIcon>
-            <ElText>{{ advantage.text }}</ElText>
-          </li>
-        </ul>
-      </ElCol>
-      <ElCol class="advantages__image-wrapper" :span="14">
-        <UiAspectRatio :ratio="1 / 2" v-slot="props">
-          <ElImage
-            v-bind="props"
-            class="advantages__image"
-            src="/images/home.svg"
-            loading="lazy"
+    <div class="advantages__content">
+      <ElText class="advantages__title" tag="h1">
+        Мы работаем для вашего уюта.
+      </ElText>
+      <ElText class="advantages__description" type="info" tag="p">
+        Основной задачей компании является благополучие вверенного объекта
+        недвижимости.
+      </ElText>
+    </div>
+    <div class="advantages__list-wrapper">
+      <ElText class="advantages__subtitle" tag="h2">Наши преимущества</ElText>
+      <ul class="advantages__list">
+        <li v-for="advantage in advantagesList" class="advantages__item">
+          <ElIcon
+            class="advantages__item-icon"
+            size="40px"
+            color="var(--el-color-primary)"
           >
-            <template #placeholder>
-              <ElSkeleton>
-                <template #template>
-                  <el-skeleton-item
-                    variant="image"
-                    style="width: 100%; height: 240px"
-                  />
-                </template>
-              </ElSkeleton>
-            </template>
-          </ElImage>
-        </UiAspectRatio>
-      </ElCol>
-    </ElRow>
+            <component :is="advantage.icon" />
+          </ElIcon>
+          <ElText class="advantages__item-text">{{ advantage.text }}</ElText>
+        </li>
+      </ul>
+    </div>
+    <div class="advantages__image-wrapper">
+      <UiAspectRatio :ratio="431 / 567" v-slot="props">
+        <ElImage
+          v-bind="props"
+          class="advantages__image"
+          src="/images/home.svg"
+          loading="lazy"
+        >
+          <template #placeholder>
+            <ElSkeleton style="height: 100%">
+              <template #template>
+                <el-skeleton-item
+                  variant="image"
+                  style="width: 100%; height: 100%"
+                />
+              </template>
+            </ElSkeleton>
+          </template>
+        </ElImage>
+      </UiAspectRatio>
+    </div>
   </ElContainer>
 </template>
 <script setup lang="ts">
@@ -77,6 +75,27 @@ const advantagesList = shallowRef([
 
 <style scoped lang="scss">
 .advantages {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  grid-template-rows: max-content 1fr;
+  gap: 30px;
+
+  &__content {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  &__list-wrapper {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  &__image-wrapper {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    align-self: flex-end;
+  }
+
   &__title {
     font-weight: 700;
     font-size: 36px;
@@ -87,12 +106,58 @@ const advantagesList = shallowRef([
     font-weight: 400;
     font-size: 18px;
     line-height: 120%;
-    margin-bottom: 30px;
   }
 
   &__subtitle {
+    margin-bottom: 14px;
     font-weight: 700;
     font-size: 24px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, max-content);
+    gap: 30px;
+    max-width: 500px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@include laptop {
+  .advantages {
+    grid-template-columns: 4fr 8fr;
+    row-gap: 40px;
+
+    &__content {
+      grid-column: 1 / 3;
+    }
+
+    &__list-wrapper {
+    }
+
+    &__image-wrapper {
+      grid-row: 2 / 3;
+    }
+
+    &__list {
+      min-width: 250px;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, max-content);
+    }
+
+    &__item {
+      flex-direction: row;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--el-color-primary-light-5);
+      border-radius: 20px;
+    }
   }
 }
 </style>

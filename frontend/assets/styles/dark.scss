@@ -1,9 +1,28 @@
-@forward "element-plus/theme-chalk/src/dark/var.scss" with (
-  $bg-color: (
-    "page": #252525,
+$-colors: (
+  "primary": (
+    "base": #369a30,
   ),
-
-  $text-color: (
-    "regular": #dbdbdb,
-  )
+  "info": (
+    "base": #bbbbbb,
+  ),
 );
+
+$bg-color: (
+  "page": #252525,
+);
+
+$text-color: (
+  "regular": #dbdbdb,
+);
+
+@forward "element-plus/theme-chalk/src/dark/var.scss" with (
+  $bg-color: $bg-color,
+  $text-color: $text-color,
+  $colors: $-colors
+);
+
+@mixin laptop() {
+  @media screen and (max-width: 1024px) {
+    @content
+  }
+}

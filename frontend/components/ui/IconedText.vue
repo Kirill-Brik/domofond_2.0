@@ -54,7 +54,6 @@ defineProps<{
     --el-font-size-base: 18px;
     --el-font-weight-primary: 700;
 
-    align-self: flex-start;
     font-size: var(--el-font-size-base);
     font-weight: var(--el-font-weight-primary);
   }

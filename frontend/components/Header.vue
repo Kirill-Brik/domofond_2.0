@@ -2,7 +2,7 @@
   <ElHeader class="header">
     <ElRow justify="space-between" align="middle" :gutter="12">
       <ElCol :span="8">
-        <ElImage class="header__logo" src="/images/logo.svg" fit="contain" />
+        <ElImage class="header__logo" src="/images/logo.svg" />
       </ElCol>
       <ElCol :span="8">
         <NuxtLink class="el-link el-link--default" to="/">test</NuxtLink>

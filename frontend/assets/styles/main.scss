@@ -1,6 +1,19 @@
-@use './variables.scss';
+// @use './dark.scss';
 
 html {
   font-family: var(--el-font-family);
   background-color: var(--el-bg-color-page);
+}
+
+body {
+  .el-text {
+    align-self: initial;
+    line-height: 120%;
+  }
+
+  .el-skeleton {
+    &__image {
+      border-radius: 30px;
+    }
+  }
 }
