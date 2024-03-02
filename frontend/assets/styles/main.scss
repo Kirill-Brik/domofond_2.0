@@ -4,6 +4,10 @@ html {
 }
 
 body {
+  a {
+    text-decoration: none;
+  }
+
   .el-text {
     align-self: initial;
     line-height: 120%;

@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/styles/dark.scss" as *;',
+          additionalData: '@use "~/assets/styles/dark.scss" as local;',
         },
       },
     },
@@ -47,6 +47,11 @@ export default defineNuxtConfig({
   },
 
   strapi: {
-    // Options
+    cookie: {
+      path: '/',
+      maxAge: 14 * 24 * 60 * 60,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: true
+    }
   }
 });

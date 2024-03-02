@@ -129,7 +129,7 @@ const advantagesList = shallowRef([
   }
 }
 
-@include md {
+@include local.md {
   .advantages {
     grid-template-columns: 1fr 2fr;
     row-gap: 40px;
@@ -158,7 +158,7 @@ const advantagesList = shallowRef([
   }
 }
 
-@include sm {
+@include local.sm {
   .advantages {
     grid-template-columns: 1fr;
 
@@ -184,7 +184,7 @@ const advantagesList = shallowRef([
   }
 }
 
-@include xs {
+@include local.xs {
   .advantages {
     &__list {
       grid-template-columns: 1fr;

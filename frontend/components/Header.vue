@@ -2,7 +2,9 @@
   <ElHeader class="header">
     <ElRow justify="space-between" align="middle" :gutter="12">
       <ElCol :span="8">
+        <NuxtLink to="/">
         <ElImage class="header__logo" src="/images/logo.svg" />
+      </NuxtLink>
       </ElCol>
       <ElCol :span="8">
         <NuxtLink class="el-link el-link--default" to="/">test</NuxtLink>
@@ -16,12 +18,13 @@
           <template #icon>
             <IcBaselinePhoneInTalk />
           </template>
-          <NuxtLink
-            class="el-link el-link--default"
-            href="tel:+7 (4872) 790-451"
+          <ElButton
+            to="tel:+7 (4872) 790-451"
+            link
+            :tag="NuxtLink"
           >
             +7 (4872) 790-451
-          </NuxtLink>
+          </ElButton>
         </UiIconedText>
       </ElCol>
     </ElRow>
@@ -29,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import { NuxtLink } from "#components";
 import IcBaselinePhoneInTalk from "~icons/ic/baseline-phone-in-talk";
 </script>
 

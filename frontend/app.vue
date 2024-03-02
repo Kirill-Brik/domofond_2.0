@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import 'element-plus/es/components/link/style/css'
 </script>
 
 <style lang="scss">
@@ -32,7 +31,7 @@ import 'element-plus/es/components/link/style/css'
   }
 }
 
-@include xs {
+@include local.xs {
   .page {
     &__main {
       padding: 50px var(--el-main-padding);

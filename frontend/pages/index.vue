@@ -1,8 +1,6 @@
 <template>
   <ElMain>
-    <HomeAdvantages>
-
-    </HomeAdvantages>
+    <HomeAdvantages />
   </ElMain>
 </template>
 
