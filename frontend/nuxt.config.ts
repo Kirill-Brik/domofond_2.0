@@ -33,6 +33,8 @@ export default defineNuxtConfig({
         /* options */
       },
     ],
+    '@nuxtjs/strapi',
+    '@pinia/nuxt'
   ],
 
   colorMode: {
@@ -43,4 +45,8 @@ export default defineNuxtConfig({
     importStyle: "scss",
     themes: ["dark"],
   },
+
+  strapi: {
+    // Options
+  }
 });
