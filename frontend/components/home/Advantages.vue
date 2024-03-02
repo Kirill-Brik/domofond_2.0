@@ -129,16 +129,13 @@ const advantagesList = shallowRef([
   }
 }
 
-@include laptop {
+@include md {
   .advantages {
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 1fr 2fr;
     row-gap: 40px;
 
     &__content {
       grid-column: 1 / 3;
-    }
-
-    &__list-wrapper {
     }
 
     &__image-wrapper {
@@ -157,6 +154,47 @@ const advantagesList = shallowRef([
       padding: 10px;
       border: 1px solid var(--el-color-primary-light-5);
       border-radius: 20px;
+    }
+  }
+}
+
+@include sm {
+  .advantages {
+    grid-template-columns: 1fr;
+
+    &__content {
+      grid-column: 1 / 2;
+    }
+
+    &__image-wrapper {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    &__list-wrapper {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+
+    &__list {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, max-content);
+      max-width: inherit;
+    }
+  }
+}
+
+@include xs {
+  .advantages {
+    &__list {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, max-content);
+      gap: 20px;
+    }
+
+    &__item {
+      padding: 0;
+      border: none;
     }
   }
 }

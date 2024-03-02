@@ -31,4 +31,12 @@ import 'element-plus/es/components/link/style/css'
     padding: 100px var(--el-main-padding);
   }
 }
+
+@include xs {
+  .page {
+    &__main {
+      padding: 50px var(--el-main-padding);
+    }
+  }
+}
 </style>

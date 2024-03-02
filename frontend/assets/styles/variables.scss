@@ -1,14 +1,18 @@
-$-colors: (
-  'primary': (
-    'base': #369a30
-  ),
-  'info': (
-    'base': #bbbbbb
-  )
-);
 
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
-  $colors: $-colors
-);
+@mixin xs() {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}
 
-@use './dark.scss';
+@mixin sm() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
