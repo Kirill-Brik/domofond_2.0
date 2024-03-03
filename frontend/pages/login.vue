@@ -24,7 +24,14 @@
 import type { FormInstance, FormRules } from "element-plus";
 import type { LoginData } from "~/stores/user";
 
-const { login } = useUserStore();
+definePageMeta({
+  middleware: [(to, from) => {
+    const store = useUserStore();
+    if (store.user) return navigateTo('/admin')
+    }],
+});
+
+const store = useUserStore();
 
 const formState = ref<FormInstance>();
 
@@ -42,7 +49,7 @@ async function submit(formState: FormInstance | undefined) {
   if (!formState) return;
   await formState
     .validate()
-    .then(() => login(formData.value))
+    .then(() => store.login(formData.value))
     .then(() => {
       navigateTo("/admin");
     })
