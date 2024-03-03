@@ -27,7 +27,7 @@ import type { LoginData } from "~/stores/user";
 definePageMeta({
   middleware: [(to, from) => {
     const store = useUserStore();
-    if (store.user) return navigateTo('/admin')
+    if (store.user) return navigateTo('/admin', {replace: true})
     }],
 });
 
