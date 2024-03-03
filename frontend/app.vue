@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator color="$--el-color-primary"/>
   <ElContainer class="dark page" direction="vertical">
     <ElContainer class="page__header-wrapper">
       <Header class="page__content" />

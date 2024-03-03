@@ -6,10 +6,10 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'УК Домофонд',
-  description: 'Управляющая компания "Домофонд" в городе Тула'
-})
+  title: "УК Домофонд",
+  description: 'Управляющая компания "Домофонд" в городе Тула',
+});
 
-const store = useHomesStore()
-await useAsyncData('homes', () => store.getHomeList())
+const store = useHomesStore();
+await useAsyncData("homes", () => store.getHomeList());
 </script>

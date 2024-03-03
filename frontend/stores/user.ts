@@ -10,10 +10,17 @@ export const useUserStore = defineStore("user", {
   actions: {
     async login({ email, password }: LoginData) {
       const { login } = useStrapiAuth();
-      await login({ identifier: email, password }).then(
-        () => (this.user = useStrapiUser().value)
+      this.user = await login({ identifier: email, password }).then(
+        async () => useStrapiUser().value
       );
       return this.user;
+    },
+
+    async logout() {
+      const { logout } = useStrapiAuth();
+      logout();
+      this.user = useStrapiUser().value
+      navigateTo('/')
     },
   },
 });

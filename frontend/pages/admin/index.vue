@@ -1,9 +1,16 @@
 <template>
-  <ElMain>
-    <AuthLogin v-if="!user" />
+  <ElMain class="admin">
+    <ElText class="admin__title" tag="h1"> Дома </ElText>
+    <AdminTable />
   </ElMain>
 </template>
 
 <script lang="ts" setup>
-const {user} = useUserStore();
+definePageMeta({
+  middleware: ["auth"],
+});
+
+const store = useHomesStore();
+
+await useAsyncData("homes", () => store.getHomeList());
 </script>
