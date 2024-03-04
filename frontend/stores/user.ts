@@ -1,6 +1,7 @@
 export interface LoginData {
   email: string;
   password: string;
+  [other: string | number | symbol]: unknown;
 }
 
 export const useUserStore = defineStore("user", {

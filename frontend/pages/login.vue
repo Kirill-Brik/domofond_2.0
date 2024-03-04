@@ -1,5 +1,6 @@
 <template>
   <ElMain class="login">
+    <ElText class="login__title" tag="h1">Войти</ElText>
     <ElForm
       class="login"
       label-position="top"
@@ -8,7 +9,6 @@
       ref="formState"
       @submit.prevent="submit(formState)"
     >
-      <ElText class="login__title" tag="h1">Войти</ElText>
       <ElFormItem label="Email" prop="email">
         <ElInput v-model="formData.email" />
       </ElFormItem>
@@ -22,28 +22,26 @@
 
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from "element-plus";
-import type { LoginData } from "~/stores/user";
 
 definePageMeta({
-  middleware: [(to, from) => {
-    const store = useUserStore();
-    if (store.user) return navigateTo('/admin', {replace: true})
-    }],
+  middleware: [
+    (to, from) => {
+      const store = useUserStore();
+      if (store.user) return navigateTo("/admin", { replace: true });
+    },
+  ],
 });
 
-const store = useUserStore();
-
-const formState = ref<FormInstance>();
-
-const formData = ref<LoginData>({
-  email: "",
-  password: "",
-});
-
-const formRules = ref<FormRules<LoginData>>({
-  email: [{ required: true, message: "Введите почту", trigger: "blur" }],
-  password: [{ required: true, message: "Введите пароль", trigger: "blur" }],
-});
+const store = useUserStore(),
+  formState = ref<FormInstance>(),
+  formData = ref<LoginData>({
+    email: "",
+    password: "",
+  }),
+  formRules = ref<FormRules<LoginData>>({
+    email: [{ required: true, message: "Введите почту", trigger: "blur" }],
+    password: [{ required: true, message: "Введите пароль", trigger: "blur" }],
+  });
 
 async function submit(formState: FormInstance | undefined) {
   if (!formState) return;

@@ -3,7 +3,7 @@
     <ElText class="admin__title" tag="h1"> Дома </ElText>
     <ClientOnly>
       <ElTable :data="store.homes">
-        <ElTableColumn fixed prop="id" label="id" width="100" />
+        <ElTableColumn fixed prop="id" label="id" width="70" />
         <ElTableColumn
           prop="attributes.address"
           label="Адресс"
@@ -14,9 +14,9 @@
           label="Договор"
           min-width="200"
         />
-        <ElTableColumn width="200" align="center">
+        <ElTableColumn fixed="right" width="200" align="center">
           <template #header>
-            <ElButton class="admin__button">
+            <ElButton class="admin__button" @click="openAddHome = true">
               <ElIcon size="18"><IcRoundAddBox /></ElIcon>
               <span>Добавить дом</span>
             </ElButton>
@@ -28,6 +28,7 @@
       </ElTable>
     </ClientOnly>
   </ElMain>
+  <AdminAddHome v-model="openAddHome" />
 </template>
 
 <script lang="ts" setup>
@@ -39,22 +40,8 @@ definePageMeta({
   middleware: ["auth"],
 });
 
-const store = useHomesStore();
-
-const headList = ref<Head[]>([
-  {
-    key: "id",
-    name: "id",
-  },
-  {
-    key: "attributes.address",
-    name: "Адресс",
-  },
-  {
-    key: "attributes.contract.data.attributes.name",
-    name: "Договор",
-  },
-]);
+const store = useHomesStore(),
+  openAddHome = ref(false)
 
 await useAsyncData("homes", () => store.getHomeList());
 </script>
