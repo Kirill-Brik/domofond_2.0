@@ -23,7 +23,10 @@
             +7 (4872) 790-451
           </ElButton>
         </UiIconedText>
-        <ElButton v-else class="header__logout" :icon="IcRoundLogout" @click="store.logout" />
+        <ElButton v-else class="header__logout" @click="store.logout">
+          <ElIcon size="18"><IcRoundLogout /></ElIcon>
+          <span>Выйти</span>
+        </ElButton>
       </ElCol>
     </ElRow>
   </ElHeader>
@@ -35,7 +38,7 @@ import IcBaselinePhoneInTalk from "~icons/ic/baseline-phone-in-talk";
 import IcRoundLogout from "~icons/ic/round-logout";
 
 const store = useUserStore();
-const { user } = storeToRefs(store)
+const { user } = storeToRefs(store);
 </script>
 
 <style lang="scss" scoped>
